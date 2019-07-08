@@ -105,7 +105,7 @@ always @(posedge clk) begin
 		if (phase_acc[7:6] == 2'b11) begin
 			out <= {1'b0,~lut[~phase_acc[5:0]]};
 		end
-		phase_inc = freq_res;
+		phase_inc <= freq_res;
 		// Changing phase event with 3 clk latency 
 		prev_phase <= phase;
 		if (phase != prev_phase) begin
