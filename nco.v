@@ -94,16 +94,16 @@ always @(posedge clk) begin
 	else begin
 		// Forming sin with 1 clk latency
 		if (phase_acc[7:6] == 2'b00) begin
-			out = {1'b1,lut[phase_acc[5:0]]};
+			out <= {1'b1,lut[phase_acc[5:0]]};
 		end
 		if (phase_acc[7:6] == 2'b01) begin
-			out = {1'b1,lut[~phase_acc[5:0]]};
+			out <= {1'b1,lut[~phase_acc[5:0]]};
 		end
 		if (phase_acc[7:6] == 2'b10) begin
-			out = {1'b0,~lut[phase_acc[5:0]]};
+			out <= {1'b0,~lut[phase_acc[5:0]]};
 		end
 		if (phase_acc[7:6] == 2'b11) begin
-			out = {1'b0,~lut[~phase_acc[5:0]]};
+			out <= {1'b0,~lut[~phase_acc[5:0]]};
 		end
 		phase_inc = freq_res;
 		// Changing phase event with 3 clk latency 
@@ -116,7 +116,7 @@ always @(posedge clk) begin
 			change_phase <= 1'b0;
 		end
 		else begin
-			phase_acc = phase_acc + {2'b0,phase_inc};
+			phase_acc <= phase_acc + {2'b0,phase_inc};
 		end
 	end
 end
