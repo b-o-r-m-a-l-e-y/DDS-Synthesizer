@@ -27,9 +27,10 @@ initial
 		//$monitor("time =%4d   out=%h",$time,out);
 		rst = 1'b1;
 		freq_res = 1;
-		#8
+		#10
 		rst = 1'b0;
-		#60000000000
+		//applied to 1 minute
+		#10000000
 		/*
 		phase = 8'b00100011;
 		#300
