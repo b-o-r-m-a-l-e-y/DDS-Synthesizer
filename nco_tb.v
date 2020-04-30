@@ -1,5 +1,5 @@
 `include "nco.v"
-`timescale 1ns / 1ps
+`timescale 1ns / 1ns
 
 module nco_tb;
 
@@ -18,7 +18,7 @@ nco nco_inst
 	);
 
 always
-	#2 clk <= ~clk;
+	#5 clk <= ~clk;
 
 initial
 	begin
@@ -29,7 +29,8 @@ initial
 		freq_res = 1;
 		#8
 		rst = 1'b0;
-		#300
+		#60000000000
+		/*
 		phase = 8'b00100011;
 		#300
 		phase = 8'b00001111;
@@ -42,6 +43,7 @@ initial
 		#400
 		phase = 8'b00010011;
 		#1200
+		*/
 		$finish;
 	end
 
